@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "8511132827",
+    "project_id": "sportfriend-9d311",
+    "storage_bucket": "sportfriend-9d311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8511132827:android:55cc0b3a68313ec977223e",
+        "android_client_info": {
+          "package_name": "com.polblack7.sportfriend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6pE4CTS-a1sRWh6Vgvxps0dsQBKL0jzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
