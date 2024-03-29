@@ -19,7 +19,7 @@
             android:background="@android:color/transparent"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:src="@drawable/shape_arrow_png"/>
+            android:src="@drawable/shape_arrow01"/>
 
         <ImageView
             android:id="@+id/iconIv"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@drawable/shape_textedit"
-                    android:drawableStart="@drawable/shape_login_png"
+                    android:drawableStart="@drawable/shape_login01"
                     android:drawablePadding="10dp"
                     android:hint="Login"
                     android:textColorHint="@color/Gray"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@drawable/shape_textedit"
-                    android:drawableStart="@drawable/email_shape_png"
+                    android:drawableStart="@drawable/email_shape01"
                     android:drawablePadding="10dp"
                     android:hint="Email"
                     android:textColorHint="@color/Gray"
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@drawable/shape_textedit"
-                    android:drawableStart="@drawable/password_shape_png"
+                    android:drawableStart="@drawable/password_shape01"
                     android:drawablePadding="10dp"
                     android:hint="Password"
                     android:textColorHint="@color/Gray"
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@drawable/shape_textedit"
-                    android:drawableStart="@drawable/password_shape_png"
+                    android:drawableStart="@drawable/password_shape01"
                     android:drawablePadding="10dp"
                     android:hint="Confirm Password"
                     android:textColorHint="@color/Gray"
