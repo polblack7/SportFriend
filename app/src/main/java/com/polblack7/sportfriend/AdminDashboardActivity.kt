@@ -33,7 +33,8 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this@AdminDashboardActivity, MainActivity::class.java))
             finish()
         } else {
-
+            val email = firebaseUser.email
+            binding.userName.text = email
         }
     }
 }
