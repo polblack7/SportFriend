@@ -7,15 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
-import com.polblack7.sportfriend.databinding.ActivityAdminDashboardBinding
+import com.polblack7.sportfriend.databinding.ActivityUserDashboardBinding
 
 class UserDashboardActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAdminDashboardBinding
+    private lateinit var binding: ActivityUserDashboardBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAdminDashboardBinding.inflate(layoutInflater)
+        binding = ActivityUserDashboardBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
 
