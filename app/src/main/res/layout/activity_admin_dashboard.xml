@@ -47,6 +47,35 @@
 
     </RelativeLayout>
 
+    <EditText
+        android:id="@+id/searchEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarUser"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_search_bar"
+        android:drawableStart="@drawable/shape_search"
+        android:hint="Serch here"
+        android:padding="10dp"
+        android:textColorHint="@color/Gray"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sportList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchEt"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_sports"
+        android:padding="10dp"
+        android:scrollbars="vertical"/>
+
+
 <LinearLayout
     android:id="@+id/bottomLiner"
     android:layout_width="match_parent"
@@ -65,8 +94,7 @@
         android:background="@drawable/shape_button"
         android:minHeight="50dp"
         android:text="Add a new sport"
-        android:textAllCaps="false"
-        />
+        android:textAllCaps="false"/>
 
 
 </LinearLayout>

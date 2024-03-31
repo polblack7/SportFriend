@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SportFriend"
         tools:targetApi="31">
         <activity
-            android:name=".CategoryAddActivity"
+            android:name=".SportAddActivity"
             android:exported="false" />
         <activity
             android:name=".AdminDashboardActivity"

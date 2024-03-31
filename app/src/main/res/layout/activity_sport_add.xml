@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoryAddActivity">
+    tools:context=".SportAddActivity">
 
 
     <RelativeLayout
@@ -38,7 +38,7 @@
             android:layout_below="@id/iconIv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="6dp"
-            android:text="Add Category"
+            android:text="Add Sport"
             android:textSize="20sp"
             android:textColor="@color/black"/>
 

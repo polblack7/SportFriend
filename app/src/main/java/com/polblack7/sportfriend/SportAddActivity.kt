@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.polblack7.sportfriend.databinding.ActivityCategoryAddBinding
+import com.polblack7.sportfriend.databinding.ActivitySportAddBinding
 
-class CategoryAddActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCategoryAddBinding
+class SportAddActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySportAddBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -20,7 +18,7 @@ class CategoryAddActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCategoryAddBinding.inflate(layoutInflater)
+        binding = ActivitySportAddBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
 
@@ -42,7 +40,7 @@ class CategoryAddActivity : AppCompatActivity() {
     private fun validateData() {
         val sport = binding.sportNameEt.text.toString().trim()
         if (sport.isEmpty()) {
-            binding.sportNameEt.error = "Please enter category"
+            binding.sportNameEt.error = "Please enter sport"
         } else {
             addSport()
         }
