@@ -27,6 +27,10 @@ class UserDashboardActivity : AppCompatActivity() {
             checkUser()
         }
 
+        binding.addSport.setOnClickListener {
+            startActivity(Intent(this, RequestAddActivity::class.java))
+        }
+
     }
 
     private fun checkUser() {

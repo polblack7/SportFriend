@@ -52,6 +52,10 @@ class AdminDashboardActivity : AppCompatActivity() {
         binding.createCategory.setOnClickListener {
             startActivity(Intent(this, SportAddActivity::class.java))
         }
+
+        binding.addSport.setOnClickListener {
+            startActivity(Intent(this, RequestAddActivity::class.java))
+        }
     }
 
     private fun loadSports() {
