@@ -9,6 +9,7 @@ import android.content.Context
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.app.AlertDialog
+import android.content.Intent
 import android.widget.Filter
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
@@ -69,6 +70,14 @@ class AdapterSport : RecyclerView.Adapter<AdapterSport.HolderSport>, Filterable 
                 }
                 .show()
         }
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, SportListAdminActivity::class.java)
+            intent.putExtra("SportId", id)
+            intent.putExtra("Sport", sport)
+            context.startActivity(intent)
+        }
+
     }
 
     private fun deleteSport(model: ModelSport, holder: HolderSport) {

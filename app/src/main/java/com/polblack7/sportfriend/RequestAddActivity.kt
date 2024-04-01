@@ -101,7 +101,7 @@ class RequestAddActivity : AppCompatActivity() {
         hashMap["location"] = "$location"
         hashMap["description"] = "$description"
         hashMap["sportId"] = "$selectedSportId"
-        hashMap["timestamp"] = "$timestamp"
+        hashMap["timestamp"] = timestamp
         hashMap["viewsCount"] = 0
 
         val ref = FirebaseDatabase.getInstance().getReference("Forms")
