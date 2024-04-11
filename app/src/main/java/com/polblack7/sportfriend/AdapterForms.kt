@@ -17,10 +17,10 @@ class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
 
     private  var context: Context
 
-    var formArrayList: ArrayList<ModelForm>
+    public var formArrayList: ArrayList<ModelForm>
     private var filterList: ArrayList<ModelForm>
 
-    var filter: FilterFormsAdmin? = null
+    private var filter: FilterFormsAdmin? = null
 
 
 
@@ -32,22 +32,25 @@ class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
 
 
 
-    inner class HolderForm(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameTv: TextView = binding.titleTv
-        val sportTv: TextView = binding.sportId
-        val phoneTv: TextView = binding.phoneTv
-        val descriptionTv: TextView = binding.descriptionTv
-        val timestampTv: TextView = binding.dateTv
-        val moreBtn = binding.moreBtn
 
-
-    }
 
     override fun getFilter(): Filter {
         if (filter == null) {
             filter = FilterFormsAdmin(filterList, this)
         }
         return filter as FilterFormsAdmin
+    }
+
+    inner class HolderForm(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val nameTv: TextView = binding.titleTv
+        val sportTv: TextView = binding.sportId
+        val phoneTv: TextView = binding.phoneTv
+        val descriptionTv: TextView = binding.descriptionTv
+        val timestampTv: TextView = binding.dateTv
+        val locationTV: TextView = binding.locationTv
+        val moreBtn = binding.moreBtn
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderForm {
@@ -66,16 +69,18 @@ class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
         val sport = model.sportId
         val phone = model.phone
         val description = model.description
+        val location = model.location
         val timestamp = model.timestamp
         val formattedDate = MyAppliction.formatTimestamp(timestamp)
 
         holder.nameTv.text = name
         holder.sportTv.text = sport
         holder.phoneTv.text = phone
+        holder.locationTV.text = location
         holder.descriptionTv.text = description
         holder.timestampTv.text = formattedDate
 
-        MyAppliction.loadForm(sportId = formId, holder.sportTv)
+        MyAppliction.loadForm(sportId = sport, holder.sportTv)
 
 
 

@@ -19,7 +19,7 @@ class FilterFormsAdmin : Filter {
         if (constraint != null && constraint.isNotEmpty()) {
             val search = constraint.toString().toUpperCase()
 
-            val filteredModels = ArrayList<ModelForm>()
+            var filteredModels = ArrayList<ModelForm>()
 
             for (i in filterList.indices) {
                 if (filterList[i].name.toUpperCase().contains(search)) {

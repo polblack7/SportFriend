@@ -46,6 +46,8 @@ class SportListAdminActivity : AppCompatActivity() {
 
         loadFormsList()
 
+
+
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
@@ -67,6 +69,8 @@ class SportListAdminActivity : AppCompatActivity() {
             }
         })
 
+
+
     }
 
     private fun loadFormsList() {
@@ -79,7 +83,6 @@ class SportListAdminActivity : AppCompatActivity() {
                     formsArrayList.clear()
                     for (ds in snapshot.children) {
                         val modelForm = ds.getValue(ModelForm::class.java)
-                        val hi = modelForm
                         if (modelForm != null) {
                             formsArrayList.add(modelForm)
                             Log.d(TAG, "onDataChange: ")

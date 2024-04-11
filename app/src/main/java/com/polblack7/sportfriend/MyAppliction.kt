@@ -23,11 +23,11 @@ class MyAppliction: Application()   {
         }
 
         fun loadForm(sportId: String, sportTv: TextView ) {
-            val ref = FirebaseDatabase.getInstance().getReference("Forms")
+            val ref = FirebaseDatabase.getInstance().getReference("Sports")
             ref.child(sportId)
                 .addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        val sport = "${snapshot.child(" sport ").value}"
+                        val sport = "${snapshot.child("sport").value}"
 
                         sportTv.text = sport
                     }
