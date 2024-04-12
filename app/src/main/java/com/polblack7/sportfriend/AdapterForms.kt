@@ -6,9 +6,11 @@ import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.polblack7.sportfriend.databinding.RowFormsAdminBinding
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.appcompat.app.AlertDialog
 
 
 class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
@@ -82,7 +84,36 @@ class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
 
         MyAppliction.loadForm(sportId = sport, holder.sportTv)
 
+        holder.moreBtn.setOnClickListener {
+            moreOptionsDialog(model, holder)
+        }
 
+
+
+
+    }
+
+    private fun moreOptionsDialog(model: ModelForm, holder: AdapterForms.HolderForm) {
+        val formId = model.id
+        val name = model.name
+
+        val options = arrayOf("Edit", "Delete")
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Choose Option")
+            .setItems(options) { dialog, which ->
+                if (which == 0) {
+                    // Edit
+                    val intent = Intent(context, FormEditActivity::class.java)
+                    intent.putExtra("formId", formId)
+                    context.startActivity(intent)
+                } else {
+                    // Delete
+                    MyAppliction.deleteForm(context, formId, name)
+
+                }
+            }
+            .show()
 
 
     }
