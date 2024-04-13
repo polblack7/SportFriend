@@ -88,6 +88,12 @@ class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
             moreOptionsDialog(model, holder)
         }
 
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, FormDetailActivity::class.java)
+            intent.putExtra("formId", formId)
+            context.startActivity(intent)
+        }
+
 
 
 

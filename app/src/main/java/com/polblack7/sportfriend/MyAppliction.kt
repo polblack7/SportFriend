@@ -71,6 +71,50 @@ class MyAppliction: Application() {
                 })
 
         }
+
+        fun incrementViewsCount(formId: String) {
+            val ref = FirebaseDatabase.getInstance().getReference("Forms")
+            ref.child(formId)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        var viewsCount = "${snapshot.child("viewsCount").value}"
+
+                        if (viewsCount == "" || viewsCount == "null") {
+                            viewsCount = "0";
+                        }
+
+                        val newViewsCount = viewsCount.toLong() + 1
+
+                        val hashMap = HashMap<String, Any>()
+                        hashMap["viewsCount"] = newViewsCount
+
+                        val dbRef = FirebaseDatabase.getInstance().getReference("Forms")
+                        dbRef.child(formId)
+                            .updateChildren(hashMap)
+
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
+        }
+
+        fun loadName(uid: String, nameTv: TextView) {
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val name = "${snapshot.child("login").value}"
+                        nameTv.text = name
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
+
+        }
+
     }
 
 
