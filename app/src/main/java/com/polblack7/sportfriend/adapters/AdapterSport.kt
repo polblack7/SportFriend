@@ -1,4 +1,4 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.adapters
 
 import android.widget.TextView
 import android.view.View
@@ -14,6 +14,9 @@ import android.widget.Filter
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import android.widget.Filterable
+import com.polblack7.sportfriend.filters.FilterSport
+import com.polblack7.sportfriend.models.ModelSport
+import com.polblack7.sportfriend.activities.SportListAdminActivity
 
 class AdapterSport : RecyclerView.Adapter<AdapterSport.HolderSport>, Filterable {
     private  var context: Context

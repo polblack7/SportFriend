@@ -8,13 +8,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
+import android.view.ViewGroup.MarginLayoutParams
+import androidx.core.view.MarginLayoutParamsCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.polblack7.sportfriend.activities.RequestAddActivity
+import com.polblack7.sportfriend.adapters.AdapterFormUser
 import com.polblack7.sportfriend.databinding.FragmentFormsUserBinding
+import com.polblack7.sportfriend.models.ModelForm
 
 
 class FormsUserFragment : Fragment {
@@ -59,6 +67,14 @@ class FormsUserFragment : Fragment {
         binding = FragmentFormsUserBinding.inflate(LayoutInflater.from(context), container, false)
 
         Log.d(TAG, "onCreateView: sport: $sport")
+
+        ViewCompat
+            .setOnApplyWindowInsetsListener(binding.addFab) { view, insets ->
+                view.updateLayoutParams<MarginLayoutParams> {
+                    bottomMargin = insets.systemWindowInsetBottom
+                }
+                insets
+            }
 
         if (sport == "All") {
             loadAllForms()

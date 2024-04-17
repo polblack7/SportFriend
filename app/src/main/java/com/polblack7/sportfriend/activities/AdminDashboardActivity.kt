@@ -1,18 +1,23 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.updateLayoutParams
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.polblack7.sportfriend.adapters.AdapterSport
 import com.polblack7.sportfriend.databinding.ActivityAdminDashboardBinding
+import com.polblack7.sportfriend.models.ModelSport
 
 class AdminDashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAdminDashboardBinding
@@ -27,6 +32,23 @@ class AdminDashboardActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityAdminDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ViewCompat
+            .setOnApplyWindowInsetsListener(binding.addSport) { view, insets ->
+                view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                    bottomMargin = insets.systemWindowInsetBottom
+                }
+                insets
+            }
+
+        ViewCompat
+            .setOnApplyWindowInsetsListener(binding.createCategory) { view, insets ->
+                view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                    bottomMargin = insets.systemWindowInsetBottom
+                }
+                insets
+            }
+
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
@@ -55,6 +77,10 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         binding.addSport.setOnClickListener {
             startActivity(Intent(this, RequestAddActivity::class.java))
+        }
+
+        binding.userLogo.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 

@@ -1,4 +1,4 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.models
 
 class ModelForm {
 

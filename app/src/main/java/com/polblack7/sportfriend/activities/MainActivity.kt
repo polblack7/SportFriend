@@ -1,4 +1,4 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.polblack7.sportfriend.R
 import com.polblack7.sportfriend.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

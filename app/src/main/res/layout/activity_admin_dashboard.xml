@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back03"
-    tools:context=".AdminDashboardActivity">
+    tools:context=".activities.AdminDashboardActivity">
 
     <RelativeLayout
         android:id="@+id/toolbarUser"
@@ -36,11 +36,12 @@
             android:background="@android:color/transparent"
             />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/userLogo"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/shape_account_logo"
+            android:background="@android:color/transparent"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"/>
 

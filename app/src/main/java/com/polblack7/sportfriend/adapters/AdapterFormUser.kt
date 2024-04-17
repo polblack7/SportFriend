@@ -1,4 +1,4 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.polblack7.sportfriend.filters.FilterFormUser
+import com.polblack7.sportfriend.activities.FormDetailActivity
+import com.polblack7.sportfriend.models.ModelForm
+import com.polblack7.sportfriend.MyAppliction
+import com.polblack7.sportfriend.activities.FormEditActivity
 import com.polblack7.sportfriend.databinding.RowFormUserBinding
 
 class AdapterFormUser : RecyclerView.Adapter<AdapterFormUser.HolderFormUser>, Filterable {
@@ -55,6 +62,7 @@ class AdapterFormUser : RecyclerView.Adapter<AdapterFormUser.HolderFormUser>, Fi
         val location = model.location
         val timestamp = model.timestamp
         val formattedDate = MyAppliction.formatTimestamp(timestamp)
+        val uid = model.uid
 
         holder.titleTv.text = name
 
@@ -70,6 +78,44 @@ class AdapterFormUser : RecyclerView.Adapter<AdapterFormUser.HolderFormUser>, Fi
             intent.putExtra("formId", formId)
             context.startActivity(intent)
         }
+
+        val CurrentUid = FirebaseAuth.getInstance().getCurrentUser()!!.getUid();
+        if (uid == CurrentUid) {
+            holder.moreBtn.visibility = View.VISIBLE
+            holder.moreBtn.setOnClickListener {
+                moreOptionsDialog(model, holder)
+            }
+        } else {
+            holder.moreBtn.visibility = View.GONE
+        }
+
+
+
+
+    }
+
+    private fun moreOptionsDialog(model: ModelForm, holder: HolderFormUser) {
+        val formId = model.id
+        val name = model.name
+
+        val options = arrayOf("Edit", "Delete")
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Choose Option")
+            .setItems(options) { dialog, which ->
+                if (which == 0) {
+                    // Edit
+                    val intent = Intent(context, FormEditActivity::class.java)
+                    intent.putExtra("formId", formId)
+                    context.startActivity(intent)
+                } else {
+                    // Delete
+                    MyAppliction.deleteForm(context, formId, name)
+
+                }
+            }
+            .show()
+
 
     }
 

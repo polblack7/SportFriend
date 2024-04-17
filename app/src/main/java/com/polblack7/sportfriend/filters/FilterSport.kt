@@ -1,6 +1,8 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.filters
 
 import android.widget.Filter
+import com.polblack7.sportfriend.models.ModelSport
+import com.polblack7.sportfriend.adapters.AdapterSport
 import java.util.ArrayList
 
 

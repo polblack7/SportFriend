@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".activities.RegisterActivity">
     <RelativeLayout
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
@@ -101,11 +101,34 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordFieldReg"
+                android:id="@+id/phoneFieldReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/emailFieldReg"
-                android:layout_marginTop="10dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/phoneFieldReg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/shape_textedit"
+                    android:drawableStart="@drawable/shape_phone"
+                    android:drawablePadding="10dp"
+                    android:hint="Phone Number"
+                    android:textColorHint="@color/Gray"
+                    android:inputType="phone"
+                    android:padding="10dp"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordFieldReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phoneFieldReg"
+                android:layout_marginTop="5dp"
                 app:passwordToggleEnabled="true"
                 app:hintEnabled="false">
 
@@ -130,7 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/passwordFieldReg"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="1dp"
                 app:passwordToggleEnabled="true"
                 app:hintEnabled="false">
 

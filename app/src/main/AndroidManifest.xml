@@ -14,39 +14,45 @@
         android:theme="@style/Theme.SportFriend"
         tools:targetApi="31">
         <activity
-            android:name=".FormDetailActivity"
+            android:name=".activities.ProfileEditActivity"
             android:exported="false" />
         <activity
-            android:name=".FormEditActivity"
+            android:name=".activities.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".SportListAdminActivity"
+            android:name=".activities.FormDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".RequestAddActivity"
+            android:name=".activities.FormEditActivity"
             android:exported="false" />
         <activity
-            android:name=".SportAddActivity"
+            android:name=".activities.SportListAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminDashboardActivity"
+            android:name=".activities.RequestAddActivity"
             android:exported="false" />
         <activity
-            android:name=".UserDashboardActivity"
+            android:name=".activities.SportAddActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.AdminDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UserDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.SportFriend" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false"
             android:theme="@style/Theme.SportFriend" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,7 +60,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

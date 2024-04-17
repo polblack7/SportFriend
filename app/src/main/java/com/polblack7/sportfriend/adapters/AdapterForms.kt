@@ -1,8 +1,7 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.adapters
 import android.widget.TextView
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.polblack7.sportfriend.databinding.RowFormsAdminBinding
 import android.content.Context
@@ -11,6 +10,11 @@ import android.view.LayoutInflater
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.appcompat.app.AlertDialog
+import com.polblack7.sportfriend.filters.FilterFormsAdmin
+import com.polblack7.sportfriend.activities.FormDetailActivity
+import com.polblack7.sportfriend.activities.FormEditActivity
+import com.polblack7.sportfriend.models.ModelForm
+import com.polblack7.sportfriend.MyAppliction
 
 
 class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
@@ -99,7 +103,7 @@ class AdapterForms : RecyclerView.Adapter<AdapterForms.HolderForm>, Filterable {
 
     }
 
-    private fun moreOptionsDialog(model: ModelForm, holder: AdapterForms.HolderForm) {
+    private fun moreOptionsDialog(model: ModelForm, holder: HolderForm) {
         val formId = model.id
         val name = model.name
 

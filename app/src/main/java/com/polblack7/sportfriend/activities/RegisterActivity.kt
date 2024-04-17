@@ -1,4 +1,4 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.polblack7.sportfriend.databinding.ActivityRegisterBinding
@@ -43,11 +41,13 @@ class RegisterActivity : AppCompatActivity() {
     private var login = ""
     private var email = ""
     private var password = ""
+    private var phone = ""
 
     private fun validateData() {
         login = binding.loginFieldReg2.text.toString().trim()
         email = binding.emailFieldReg2.text.toString().trim()
         password = binding.passwordFieldReg2.text.toString().trim()
+        phone = binding.phoneFieldReg2.text.toString().trim()
         val cPassword = binding.cPasswordFieldReg2.text.toString().trim()
 
         if (login.isEmpty()) {
@@ -60,6 +60,8 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this, "Confirm your password", Toast.LENGTH_LONG).show()
         } else if (cPassword != password) {
             Toast.makeText(this, "Password doesn't match", Toast.LENGTH_LONG).show()
+        } else if (phone.isEmpty()) {
+            Toast.makeText(this, "Enter your phone number", Toast.LENGTH_LONG).show()
         } else {
             createUser()
         }
@@ -94,6 +96,7 @@ class RegisterActivity : AppCompatActivity() {
         hashMap["userType"] = "user"
         hashMap["status"] = ""
         hashMap["timeStamp"] = timeStamp
+        hashMap["phone"] = phone
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
         ref.child(uid!!)

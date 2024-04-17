@@ -1,12 +1,10 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -16,7 +14,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.polblack7.sportfriend.FormsUserFragment
 import com.polblack7.sportfriend.databinding.ActivityUserDashboardBinding
+import com.polblack7.sportfriend.models.ModelSport
 
 class UserDashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserDashboardBinding
@@ -43,7 +43,9 @@ class UserDashboardActivity : AppCompatActivity() {
             checkUser()
         }
 
-
+        binding.userLogo.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
 
 
     }
@@ -69,21 +71,21 @@ class UserDashboardActivity : AppCompatActivity() {
                         "${modelAll.sport}",
                         "${modelAll.uid}"
 
-                ), modelAll.sport
+                    ), modelAll.sport
                 )
                 viewPagerAdapter.addFragment(
                     FormsUserFragment.newInstance(
                         "${modelMostViewed.id}",
                         "${modelMostViewed.sport}",
                         "${modelMostViewed.uid}"
-                ), modelMostViewed.sport
+                    ), modelMostViewed.sport
                 )
                 viewPagerAdapter.addFragment(
                     FormsUserFragment.newInstance(
                         "${modelUser.id}",
                         "${modelUser.sport}",
                         "${modelUser.uid}"
-                ), modelUser.sport
+                    ), modelUser.sport
                 )
 
                 viewPagerAdapter.notifyDataSetChanged()

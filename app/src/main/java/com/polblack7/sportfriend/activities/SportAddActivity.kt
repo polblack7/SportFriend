@@ -1,4 +1,4 @@
-package com.polblack7.sportfriend
+package com.polblack7.sportfriend.activities
 
 import android.app.ProgressDialog
 import android.os.Bundle
