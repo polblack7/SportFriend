@@ -9,11 +9,17 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.polblack7.sportfriend.filters.FilterFormUser
 import com.polblack7.sportfriend.activities.FormDetailActivity
 import com.polblack7.sportfriend.models.ModelForm
 import com.polblack7.sportfriend.MyAppliction
+import com.polblack7.sportfriend.R
 import com.polblack7.sportfriend.activities.FormEditActivity
 import com.polblack7.sportfriend.databinding.RowFormUserBinding
 
@@ -63,6 +69,8 @@ class AdapterFormUser : RecyclerView.Adapter<AdapterFormUser.HolderFormUser>, Fi
         val timestamp = model.timestamp
         val formattedDate = MyAppliction.formatTimestamp(timestamp)
         val uid = model.uid
+        var image = ""
+
 
         holder.titleTv.text = name
 
@@ -70,6 +78,26 @@ class AdapterFormUser : RecyclerView.Adapter<AdapterFormUser.HolderFormUser>, Fi
         holder.locationTv.text = location
         holder.descriptionTv.text = description
         holder.dateTv.text = formattedDate
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(uid!!)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    image = snapshot.child("profileImage").value.toString()
+                    try {
+                        Glide.with(context)
+                            .load(image)
+                            .placeholder(R.drawable.shape_default_account)
+                            .into(holder.imageIv)
+                    } catch (e: Exception) {
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+
+
 
         MyAppliction.loadForm(sportId = sport, holder.sportId)
 
@@ -128,6 +156,7 @@ class AdapterFormUser : RecyclerView.Adapter<AdapterFormUser.HolderFormUser>, Fi
         var dateTv = binding.dateTv
         var phoneTv = binding.phoneTv
         var locationTv = binding.locationTv
+        var imageIv = binding.formIconIv
     }
 
 
